@@ -1,50 +1,316 @@
 {
   "id": "lifeboat.eu_ai_act",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "type": "governance",
   "title": "EU AI Act",
   "publisher": "Lifeboat AI",
   "license": "paid",
   "entitlement": "framework:eu_ai_act",
-  "summary": "Operationalizes the EU AI Act: risk classes, prohibited-practice and high-risk obligations, RAI review cadence, committee routing.",
-  "requires": { "helios": ">=1.0", "packs": [] },
-  "status": "in_progress — lighthouse pack; contribution content being authored",
+  "summary": "Operationalizes the EU AI Act (Reg. 2024/1689): prohibited-practice + high-risk obligations, risk classes, controls, RiskCom routing, and revalidation cadence.",
+  "requires": {
+    "helios": ">=1.0",
+    "packs": []
+  },
   "contributions": [
     {
       "kind": "regime",
-      "regime": { "code": "EU_AI_ACT", "name": "EU AI Act (Reg. 2024/1689)", "regime_kind": "ai" }
+      "regime": {
+        "code": "EU_AI_ACT",
+        "name": "EU AI Act (Reg. 2024/1689)",
+        "regime_kind": "ai"
+      }
     },
     {
       "kind": "classification",
-      "scheme": { "name": "eu_ai_act_risk_class", "classes": ["prohibited", "high", "limited", "minimal"] }
+      "scheme": {
+        "name": "eu_ai_act_risk_class",
+        "classes": [
+          "prohibited",
+          "high",
+          "limited",
+          "minimal"
+        ]
+      }
     },
     {
       "kind": "obligations",
       "items": [
         {
-          "code": "EUAIACT-ART5-BIOMETRIC",
+          "code": "EUAIACT-ART5-SUBLIMINAL",
           "restriction_type": "prohibit",
-          "rule": { "applies_to": { "purpose": "realtime_remote_biometric_id_public" } },
-          "citation_text": "Prohibited AI practice — real-time remote biometric identification in publicly accessible spaces for law enforcement (with narrow exceptions).",
+          "rule": {
+            "applies_to": {
+              "purpose": "manipulative_subliminal"
+            }
+          },
+          "citation_text": "Subliminal, manipulative or deceptive techniques that materially distort behaviour and cause significant harm are prohibited.",
+          "citation_ref": "EU AI Act Art. 5(1)(a)"
+        },
+        {
+          "code": "EUAIACT-ART5-VULNERABILITY",
+          "restriction_type": "prohibit",
+          "rule": {
+            "applies_to": {
+              "purpose": "exploit_vulnerability"
+            }
+          },
+          "citation_text": "Exploiting vulnerabilities of a person or group (age, disability, socio-economic situation) to distort behaviour is prohibited.",
+          "citation_ref": "EU AI Act Art. 5(1)(b)"
+        },
+        {
+          "code": "EUAIACT-ART5-SOCIAL-SCORING",
+          "restriction_type": "prohibit",
+          "rule": {
+            "applies_to": {
+              "purpose": "social_scoring"
+            }
+          },
+          "citation_text": "Social scoring leading to detrimental or unfavourable treatment is prohibited.",
+          "citation_ref": "EU AI Act Art. 5(1)(c)"
+        },
+        {
+          "code": "EUAIACT-ART5-SCRAPE-FACES",
+          "restriction_type": "prohibit",
+          "rule": {
+            "applies_to": {
+              "purpose": "facial_image_scraping"
+            }
+          },
+          "citation_text": "Creating/expanding facial recognition databases via untargeted scraping of facial images is prohibited.",
+          "citation_ref": "EU AI Act Art. 5(1)(e)"
+        },
+        {
+          "code": "EUAIACT-ART5-EMOTION-WORK",
+          "restriction_type": "prohibit",
+          "rule": {
+            "applies_to": {
+              "purpose": "emotion_recognition_workplace"
+            }
+          },
+          "citation_text": "Emotion recognition in the workplace and education institutions is prohibited (save medical/safety).",
+          "citation_ref": "EU AI Act Art. 5(1)(f)"
+        },
+        {
+          "code": "EUAIACT-ART5-RT-BIOMETRIC",
+          "restriction_type": "prohibit",
+          "rule": {
+            "applies_to": {
+              "purpose": "realtime_remote_biometric_id_public"
+            }
+          },
+          "citation_text": "Real-time remote biometric identification in publicly accessible spaces for law enforcement is prohibited (narrow exceptions).",
           "citation_ref": "EU AI Act Art. 5(1)(h)"
         },
         {
-          "code": "EUAIACT-HIGHRISK-CONFORMITY",
+          "code": "EUAIACT-ART9-RMS",
           "restriction_type": "require",
-          "rule": { "applies_to": { "purpose": "high_risk_ai_system" }, "conditions": ["conformity assessment", "risk management system", "human oversight", "logging"] },
-          "citation_text": "High-risk AI systems shall undergo conformity assessment and maintain a risk management system, human oversight, and record-keeping.",
-          "citation_ref": "EU AI Act Arts. 9, 14, 12, 43"
+          "rule": {
+            "applies_to": {
+              "purpose": "high_risk_ai_system"
+            },
+            "conditions": [
+              "establish and maintain a risk management system across the lifecycle"
+            ]
+          },
+          "citation_text": "High-risk AI systems shall have a risk management system.",
+          "citation_ref": "EU AI Act Art. 9"
+        },
+        {
+          "code": "EUAIACT-ART10-DATA",
+          "restriction_type": "require",
+          "rule": {
+            "applies_to": {
+              "purpose": "high_risk_ai_system"
+            },
+            "conditions": [
+              "training, validation and testing data governance and quality"
+            ]
+          },
+          "citation_text": "High-risk AI systems shall meet data and data-governance requirements.",
+          "citation_ref": "EU AI Act Art. 10"
+        },
+        {
+          "code": "EUAIACT-ART11-DOC",
+          "restriction_type": "require",
+          "rule": {
+            "applies_to": {
+              "purpose": "high_risk_ai_system"
+            },
+            "conditions": [
+              "maintain technical documentation"
+            ]
+          },
+          "citation_text": "High-risk AI systems shall have technical documentation demonstrating conformity.",
+          "citation_ref": "EU AI Act Art. 11"
+        },
+        {
+          "code": "EUAIACT-ART12-LOGGING",
+          "restriction_type": "require",
+          "rule": {
+            "applies_to": {
+              "purpose": "high_risk_ai_system"
+            },
+            "conditions": [
+              "automatic recording of events (logs) over the lifetime"
+            ]
+          },
+          "citation_text": "High-risk AI systems shall enable automatic record-keeping (logging).",
+          "citation_ref": "EU AI Act Art. 12"
+        },
+        {
+          "code": "EUAIACT-ART13-TRANSPARENCY",
+          "restriction_type": "require",
+          "rule": {
+            "applies_to": {
+              "purpose": "high_risk_ai_system"
+            },
+            "conditions": [
+              "provide clear information/instructions to deployers"
+            ]
+          },
+          "citation_text": "High-risk AI systems shall be transparent to deployers.",
+          "citation_ref": "EU AI Act Art. 13"
+        },
+        {
+          "code": "EUAIACT-ART14-OVERSIGHT",
+          "restriction_type": "require",
+          "rule": {
+            "applies_to": {
+              "purpose": "high_risk_ai_system"
+            },
+            "conditions": [
+              "effective human oversight measures"
+            ]
+          },
+          "citation_text": "High-risk AI systems shall allow effective human oversight.",
+          "citation_ref": "EU AI Act Art. 14"
+        },
+        {
+          "code": "EUAIACT-ART15-ACCURACY",
+          "restriction_type": "require",
+          "rule": {
+            "applies_to": {
+              "purpose": "high_risk_ai_system"
+            },
+            "conditions": [
+              "accuracy, robustness and cybersecurity"
+            ]
+          },
+          "citation_text": "High-risk AI systems shall achieve appropriate accuracy, robustness and cybersecurity.",
+          "citation_ref": "EU AI Act Art. 15"
+        },
+        {
+          "code": "EUAIACT-ART43-CONFORMITY",
+          "restriction_type": "require",
+          "rule": {
+            "applies_to": {
+              "purpose": "high_risk_ai_system"
+            },
+            "conditions": [
+              "conformity assessment before placing on the market"
+            ]
+          },
+          "citation_text": "High-risk AI systems shall undergo the relevant conformity assessment.",
+          "citation_ref": "EU AI Act Art. 43"
+        },
+        {
+          "code": "EUAIACT-ART50-DISCLOSE",
+          "restriction_type": "require",
+          "rule": {
+            "applies_to": {
+              "purpose": "ai_human_interaction"
+            },
+            "conditions": [
+              "inform natural persons they are interacting with an AI system"
+            ]
+          },
+          "citation_text": "Providers shall ensure AI systems interacting with humans disclose the interaction.",
+          "citation_ref": "EU AI Act Art. 50(1)"
+        },
+        {
+          "code": "EUAIACT-ART50-MARK",
+          "restriction_type": "require",
+          "rule": {
+            "applies_to": {
+              "purpose": "synthetic_media"
+            },
+            "conditions": [
+              "mark synthetic/AI-generated content as artificially produced"
+            ]
+          },
+          "citation_text": "Deployers of AI generating synthetic media (deep fakes) shall disclose it is artificially generated.",
+          "citation_ref": "EU AI Act Art. 50(4)"
+        }
+      ]
+    },
+    {
+      "kind": "policies",
+      "items": [
+        {
+          "code": "EUAIACT-C-RMS",
+          "title": "Risk management system",
+          "control_ref": "Art. 9",
+          "requirement": "Establish and maintain a lifecycle risk management system for high-risk AI."
+        },
+        {
+          "code": "EUAIACT-C-DATA",
+          "title": "Data governance",
+          "control_ref": "Art. 10",
+          "requirement": "Govern training/validation/test data quality, representativeness, and bias."
+        },
+        {
+          "code": "EUAIACT-C-LOGGING",
+          "title": "Record-keeping & logging",
+          "control_ref": "Art. 12",
+          "requirement": "Enable automatic event logging over the system lifetime."
+        },
+        {
+          "code": "EUAIACT-C-OVERSIGHT",
+          "title": "Human oversight",
+          "control_ref": "Art. 14",
+          "requirement": "Provide effective human oversight controls and stop mechanisms."
+        },
+        {
+          "code": "EUAIACT-C-CONFORMITY",
+          "title": "Conformity assessment",
+          "control_ref": "Art. 43",
+          "requirement": "Complete conformity assessment and maintain the declaration of conformity."
+        },
+        {
+          "code": "EUAIACT-C-TRANSPARENCY",
+          "title": "Transparency",
+          "control_ref": "Arts. 13, 50",
+          "requirement": "Disclose AI interaction and mark AI-generated content."
         }
       ]
     },
     {
       "kind": "committee_routing",
-      "route": { "framework": "EU_AI_ACT", "queue": "q_riskcom_rai" }
+      "route": {
+        "framework": "EU_AI_ACT",
+        "queue": "q_riskcom_rai"
+      }
     },
     {
       "kind": "revalidation",
-      "cadence": { "asset_class": "high", "interval_days": 180 }
+      "cadence": {
+        "framework": "EU_AI_ACT",
+        "asset_class": "high",
+        "interval_days": 180
+      }
+    },
+    {
+      "kind": "revalidation",
+      "cadence": {
+        "framework": "EU_AI_ACT",
+        "asset_class": "limited",
+        "interval_days": 365
+      }
     }
   ],
-  "signature": { "alg": "ed25519", "key_id": "lifeboat-2026", "sig": "unsigned-draft" }
+  "signature": {
+    "alg": "ed25519",
+    "key_id": "dev",
+    "sig": "mRjw7ZgVL8Rof0cEw525Hvu0fR6NipEMmlN9odc4mIj-N5W7AK1JKJ--K-aVEE4fhQ6wyYVeT22nj8swWi7NAw"
+  }
 }
