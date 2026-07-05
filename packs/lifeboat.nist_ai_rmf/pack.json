@@ -1,0 +1,210 @@
+{
+  "id": "lifeboat.nist_ai_rmf",
+  "version": "1.0.0",
+  "type": "governance",
+  "title": "NIST AI RMF",
+  "publisher": "Lifeboat AI",
+  "license": "open_source",
+  "entitlement": null,
+  "summary": "Operationalizes the NIST AI Risk Management Framework 1.0: GOVERN / MAP / MEASURE / MANAGE controls + cited practice obligations. Open-source.",
+  "requires": {
+    "helios": ">=1.0",
+    "packs": []
+  },
+  "contributions": [
+    {
+      "kind": "regime",
+      "regime": {
+        "code": "NIST_AI_RMF",
+        "name": "NIST AI RMF 1.0",
+        "regime_kind": "ai"
+      }
+    },
+    {
+      "kind": "obligations",
+      "items": [
+        {
+          "code": "NIST-GOVERN-1.1",
+          "restriction_type": "require",
+          "rule": {
+            "applies_to": {
+              "purpose": "ai_system"
+            },
+            "conditions": [
+              "understand and manage legal/regulatory requirements involving AI"
+            ]
+          },
+          "citation_text": "Legal and regulatory requirements involving AI are understood, managed, and documented.",
+          "citation_ref": "NIST AI RMF GOVERN 1.1"
+        },
+        {
+          "code": "NIST-GOVERN-2.1",
+          "restriction_type": "require",
+          "rule": {
+            "applies_to": {
+              "purpose": "ai_system"
+            },
+            "conditions": [
+              "document roles and responsibilities for AI risk management"
+            ]
+          },
+          "citation_text": "Roles, responsibilities, and lines of communication for AI risk management are documented.",
+          "citation_ref": "NIST AI RMF GOVERN 2.1"
+        },
+        {
+          "code": "NIST-GOVERN-4.1",
+          "restriction_type": "require",
+          "rule": {
+            "applies_to": {
+              "purpose": "ai_system"
+            },
+            "conditions": [
+              "foster a culture of AI risk management and accountability"
+            ]
+          },
+          "citation_text": "Organizational practices are in place to foster a critical-thinking, risk-aware culture.",
+          "citation_ref": "NIST AI RMF GOVERN 4.1"
+        },
+        {
+          "code": "NIST-MAP-1.1",
+          "restriction_type": "require",
+          "rule": {
+            "applies_to": {
+              "purpose": "ai_system"
+            },
+            "conditions": [
+              "establish and understand the AI system context and intended purpose"
+            ]
+          },
+          "citation_text": "Context, intended purpose, and categorization of the AI system are established and understood.",
+          "citation_ref": "NIST AI RMF MAP 1.1"
+        },
+        {
+          "code": "NIST-MAP-5.1",
+          "restriction_type": "require",
+          "rule": {
+            "applies_to": {
+              "purpose": "ai_system"
+            },
+            "conditions": [
+              "assess impacts on individuals, groups, communities, and society"
+            ]
+          },
+          "citation_text": "Likelihood and magnitude of impacts to individuals, groups, and society are assessed.",
+          "citation_ref": "NIST AI RMF MAP 5.1"
+        },
+        {
+          "code": "NIST-MEASURE-2.1",
+          "restriction_type": "require",
+          "rule": {
+            "applies_to": {
+              "purpose": "ai_system"
+            },
+            "conditions": [
+              "document test sets, metrics, and evaluate the AI system"
+            ]
+          },
+          "citation_text": "Test sets, metrics, and details of the AI system evaluation are documented.",
+          "citation_ref": "NIST AI RMF MEASURE 2.1"
+        },
+        {
+          "code": "NIST-MEASURE-2.6",
+          "restriction_type": "require",
+          "rule": {
+            "applies_to": {
+              "purpose": "ai_system"
+            },
+            "conditions": [
+              "evaluate the AI system for safety risks"
+            ]
+          },
+          "citation_text": "The AI system is evaluated for safety risks and failure modes.",
+          "citation_ref": "NIST AI RMF MEASURE 2.6"
+        },
+        {
+          "code": "NIST-MEASURE-3.1",
+          "restriction_type": "require",
+          "rule": {
+            "applies_to": {
+              "purpose": "ai_system"
+            },
+            "conditions": [
+              "track identified AI risks over time"
+            ]
+          },
+          "citation_text": "Approaches and mechanisms to track identified AI risks over time are in place.",
+          "citation_ref": "NIST AI RMF MEASURE 3.1"
+        },
+        {
+          "code": "NIST-MANAGE-1.1",
+          "restriction_type": "require",
+          "rule": {
+            "applies_to": {
+              "purpose": "ai_system"
+            },
+            "conditions": [
+              "prioritize and respond to identified AI risks"
+            ]
+          },
+          "citation_text": "AI risks are prioritized, responded to, and managed based on assessment and tolerance.",
+          "citation_ref": "NIST AI RMF MANAGE 1.1"
+        },
+        {
+          "code": "NIST-MANAGE-4.1",
+          "restriction_type": "require",
+          "rule": {
+            "applies_to": {
+              "purpose": "ai_system"
+            },
+            "conditions": [
+              "implement post-deployment monitoring plans"
+            ]
+          },
+          "citation_text": "Post-deployment AI system monitoring plans are implemented, including incident response.",
+          "citation_ref": "NIST AI RMF MANAGE 4.1"
+        }
+      ]
+    },
+    {
+      "kind": "policies",
+      "items": [
+        {
+          "code": "NIST-C-GOVERN",
+          "title": "Govern",
+          "control_ref": "GOVERN",
+          "requirement": "Policies, roles, and a risk-aware culture for AI."
+        },
+        {
+          "code": "NIST-C-MAP",
+          "title": "Map",
+          "control_ref": "MAP",
+          "requirement": "Establish context and assess impacts."
+        },
+        {
+          "code": "NIST-C-MEASURE",
+          "title": "Measure",
+          "control_ref": "MEASURE",
+          "requirement": "Identify metrics and evaluate the AI system."
+        },
+        {
+          "code": "NIST-C-MANAGE",
+          "title": "Manage",
+          "control_ref": "MANAGE",
+          "requirement": "Prioritize, respond to, and monitor AI risks."
+        }
+      ]
+    },
+    {
+      "kind": "committee_routing",
+      "route": {
+        "framework": "NIST_AI_RMF",
+        "queue": "q_riskcom_rai"
+      }
+    }
+  ],
+  "signature": {
+    "alg": "ed25519",
+    "key_id": "dev",
+    "sig": "ViIu2HULoAL0aiTmBveZGtp63VCp37yRBAW6V5SA86k0mFlyff4qM6VGOsRvk8Z3IvKOFXWH22S1z1REBmiuCw"
+  }
+}

@@ -23,8 +23,10 @@
       "title": "NIST AI RMF",
       "publisher": "Lifeboat AI",
       "license": "open_source",
-      "status": "planned",
-      "summary": "NIST AI Risk Management Framework — GOVERN / MAP / MEASURE / MANAGE controls + assessment grounding."
+      "status": "available",
+      "version": "1.0.0",
+      "summary": "NIST AI Risk Management Framework 1.0 — GOVERN / MAP / MEASURE / MANAGE: 10 cited practice obligations + 4 controls + RiskCom routing. Open-source, signed.",
+      "path": "packs/lifeboat.nist_ai_rmf"
     },
     {
       "id": "lifeboat.business_case.labor_hours_saved",
