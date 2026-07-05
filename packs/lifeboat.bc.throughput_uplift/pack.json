@@ -1,0 +1,60 @@
+{
+  "id": "lifeboat.bc.throughput_uplift",
+  "version": "1.0.0",
+  "type": "business_case",
+  "title": "Throughput uplift value model",
+  "publisher": "Lifeboat AI",
+  "license": "open_source",
+  "entitlement": null,
+  "summary": "Business-case value model: extra units x value per unit from a throughput uplift %. Method as data (schema + sandboxed formula).",
+  "requires": {
+    "helios": ">=1.0",
+    "packs": []
+  },
+  "contributions": [
+    {
+      "kind": "business_case_model",
+      "model": {
+        "code": "throughput_uplift",
+        "title": "Throughput uplift",
+        "confidence_tiers": [
+          "swag",
+          "modeled",
+          "measured"
+        ],
+        "inputs": [
+          {
+            "key": "baseline_units",
+            "label": "Baseline units / year",
+            "type": "number",
+            "min": 0
+          },
+          {
+            "key": "uplift_pct",
+            "label": "Throughput uplift (%)",
+            "type": "number",
+            "min": 0
+          },
+          {
+            "key": "value_per_unit",
+            "label": "Value per unit ($)",
+            "type": "number",
+            "min": 0
+          }
+        ],
+        "formula": "baseline_units * uplift_pct / 100 * value_per_unit",
+        "benchmarks": {
+          "uplift_pct": {
+            "low": 5,
+            "high": 40
+          }
+        }
+      }
+    }
+  ],
+  "signature": {
+    "alg": "ed25519",
+    "key_id": "dev",
+    "sig": "9N0FSay7jX2hLpSfdqYGrT16J_6MEWA_WVfBC8E7MVNh3K8_j8m2Z_e9phQ4Ald3mT-XNXmCtmv5aT9SLVeEAA"
+  }
+}

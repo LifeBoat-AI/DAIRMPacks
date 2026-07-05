@@ -29,13 +29,24 @@
       "path": "packs/lifeboat.nist_ai_rmf"
     },
     {
+      "id": "lifeboat.bc.throughput_uplift",
+      "type": "business_case",
+      "title": "Throughput uplift value model",
+      "publisher": "Lifeboat AI",
+      "license": "open_source",
+      "status": "available",
+      "version": "1.0.0",
+      "summary": "Business-case value model: baseline units x uplift % x value per unit -> annualized value. Method as data (input schema + sandboxed formula). Open-source, signed.",
+      "path": "packs/lifeboat.bc.throughput_uplift"
+    },
+    {
       "id": "lifeboat.business_case.labor_hours_saved",
       "type": "business_case",
       "title": "Labor hours saved",
       "publisher": "Lifeboat AI",
       "license": "open_source",
       "status": "planned",
-      "summary": "Standard hours-saved value model: hours/period x periods/year x loaded rate -> annualized value, with confidence tiers."
+      "summary": "Standard hours-saved value model (hours/period x periods/year x loaded rate). Currently a Helios built-in; a data pack version is planned."
     }
   ]
 }
