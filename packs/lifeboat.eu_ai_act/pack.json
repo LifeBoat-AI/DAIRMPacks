@@ -1,0 +1,50 @@
+{
+  "id": "lifeboat.eu_ai_act",
+  "version": "0.1.0",
+  "type": "governance",
+  "title": "EU AI Act",
+  "publisher": "Lifeboat AI",
+  "license": "paid",
+  "entitlement": "framework:eu_ai_act",
+  "summary": "Operationalizes the EU AI Act: risk classes, prohibited-practice and high-risk obligations, RAI review cadence, committee routing.",
+  "requires": { "helios": ">=1.0", "packs": [] },
+  "status": "in_progress — lighthouse pack; contribution content being authored",
+  "contributions": [
+    {
+      "kind": "regime",
+      "regime": { "code": "EU_AI_ACT", "name": "EU AI Act (Reg. 2024/1689)", "regime_kind": "ai" }
+    },
+    {
+      "kind": "classification",
+      "scheme": { "name": "eu_ai_act_risk_class", "classes": ["prohibited", "high", "limited", "minimal"] }
+    },
+    {
+      "kind": "obligations",
+      "items": [
+        {
+          "code": "EUAIACT-ART5-BIOMETRIC",
+          "restriction_type": "prohibit",
+          "rule": { "applies_to": { "purpose": "realtime_remote_biometric_id_public" } },
+          "citation_text": "Prohibited AI practice — real-time remote biometric identification in publicly accessible spaces for law enforcement (with narrow exceptions).",
+          "citation_ref": "EU AI Act Art. 5(1)(h)"
+        },
+        {
+          "code": "EUAIACT-HIGHRISK-CONFORMITY",
+          "restriction_type": "require",
+          "rule": { "applies_to": { "purpose": "high_risk_ai_system" }, "conditions": ["conformity assessment", "risk management system", "human oversight", "logging"] },
+          "citation_text": "High-risk AI systems shall undergo conformity assessment and maintain a risk management system, human oversight, and record-keeping.",
+          "citation_ref": "EU AI Act Arts. 9, 14, 12, 43"
+        }
+      ]
+    },
+    {
+      "kind": "committee_routing",
+      "route": { "framework": "EU_AI_ACT", "queue": "q_riskcom_rai" }
+    },
+    {
+      "kind": "revalidation",
+      "cadence": { "asset_class": "high", "interval_days": 180 }
+    }
+  ],
+  "signature": { "alg": "ed25519", "key_id": "lifeboat-2026", "sig": "unsigned-draft" }
+}

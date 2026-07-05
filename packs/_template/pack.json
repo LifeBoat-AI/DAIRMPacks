@@ -1,0 +1,36 @@
+{
+  "id": "yourorg.your_pack_id",
+  "version": "0.1.0",
+  "type": "governance",
+  "title": "Your Pack Title",
+  "publisher": "Your Org",
+  "license": "open_source",
+  "entitlement": null,
+  "summary": "One sentence on what this pack operationalizes.",
+  "requires": { "helios": ">=1.0", "packs": [] },
+  "contributions": [
+    {
+      "kind": "regime",
+      "regime": { "code": "YOUR_FRAMEWORK", "name": "Your Framework", "regime_kind": "ai" }
+    },
+    {
+      "kind": "policies",
+      "items": [
+        { "code": "YF-CTRL-1", "title": "A control", "control_ref": "YF 1.1", "requirement": "What it requires." }
+      ]
+    },
+    {
+      "kind": "obligations",
+      "items": [
+        {
+          "code": "YF-OBL-1",
+          "restriction_type": "require",
+          "rule": { "applies_to": { "purpose": "some_purpose" }, "conditions": ["do X first"] },
+          "citation_text": "Verbatim source text backing this obligation.",
+          "citation_ref": "Your Framework, §1.1"
+        }
+      ]
+    }
+  ],
+  "signature": { "alg": "ed25519", "key_id": "replace-me", "sig": "unsigned" }
+}

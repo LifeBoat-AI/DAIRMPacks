@@ -1,0 +1,38 @@
+{
+  "$schema": "https://github.com/LifeBoat-AI/DAIRMPacks/schema/catalog.schema.json",
+  "registry": "LifeBoat-AI/DAIRMPacks",
+  "version": "0.1.0",
+  "updated": "2026-07-05",
+  "note": "Index only. Trust decisions are always made locally in-tenant against pack signatures.",
+  "packs": [
+    {
+      "id": "lifeboat.eu_ai_act",
+      "type": "governance",
+      "title": "EU AI Act",
+      "publisher": "Lifeboat AI",
+      "license": "paid",
+      "entitlement": "framework:eu_ai_act",
+      "status": "in_progress",
+      "summary": "Operationalizes the EU AI Act: risk classes, prohibited-practice and high-risk obligations, RAI review cadence, committee routing.",
+      "path": "packs/lifeboat.eu_ai_act"
+    },
+    {
+      "id": "lifeboat.nist_ai_rmf",
+      "type": "governance",
+      "title": "NIST AI RMF",
+      "publisher": "Lifeboat AI",
+      "license": "open_source",
+      "status": "planned",
+      "summary": "NIST AI Risk Management Framework — GOVERN / MAP / MEASURE / MANAGE controls + assessment grounding."
+    },
+    {
+      "id": "lifeboat.business_case.labor_hours_saved",
+      "type": "business_case",
+      "title": "Labor hours saved",
+      "publisher": "Lifeboat AI",
+      "license": "open_source",
+      "status": "planned",
+      "summary": "Standard hours-saved value model: hours/period x periods/year x loaded rate -> annualized value, with confidence tiers."
+    }
+  ]
+}
